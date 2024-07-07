@@ -1,13 +1,15 @@
+[build-system]
+requires = ["setuptools", "cython"]
+
 [project]
-name = "csv-processor"
+name = "libcsv"
 version = "1.0.0"
 readme = "README.md"
 requires-python = ">=3.12"
 authors = [{ "name" = "Guilherme Carvalho de Azevedo" }]
-dependencies = []
 
 [project.optional-dependencies]
-dev = ["mypy", "pip-tools", "ruff"]
+dev = ["mypy", "pip-tools", "ruff", "types-setuptools"]
 
 [tool.pip-tools]
 strip-extras = true
