@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools", "cython"]
+requires = ["cython", "setuptools"]
 
 [project]
 name = "libcsv"
@@ -10,12 +10,18 @@ authors = [{ "name" = "Guilherme Carvalho de Azevedo" }]
 
 [project.optional-dependencies]
 dev = ["mypy", "pip-tools", "ruff", "types-setuptools"]
+test = ["pytest", "PyYAML", "types-PyYAML"]
 
 [tool.pip-tools]
 strip-extras = true
 
 [tool.mypy]
 strict = true
+
+[tool.pytest.ini_options]
+addopts = "--quiet"
+console_output_style = "count"
+log_cli = true
 
 [tool.ruff]
 line-length = 79
