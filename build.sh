@@ -9,6 +9,4 @@ pip install --no-cache-dir cython setuptools
 
 python3 setup.py build_ext --inplace
 
-mv libcsv*.so libcsv.so
-
-export PYTHONPATH=.
+gcc -shared -o libcsv.so src/main.c -lpython3.12 -I/usr/include/python3.12 -L/usr/lib/python3.8/config-3.12-x86_64-linux-gnu
