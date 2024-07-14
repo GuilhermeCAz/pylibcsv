@@ -12,11 +12,12 @@ authors = [{ "name" = "Guilherme Carvalho de Azevedo" }]
 dev = ["mypy", "pip-tools", "ruff", "types-setuptools"]
 test = ["pytest", "PyYAML", "types-PyYAML"]
 
-[tool.pip-tools]
-strip-extras = true
-
 [tool.mypy]
 strict = true
+
+[tool.pip-tools]
+allow-unsafe = true
+strip-extras = true
 
 [tool.pytest.ini_options]
 addopts = "--quiet"
@@ -43,6 +44,3 @@ extend-ignore = [
 
 [tool.ruff.lint.per-file-ignores]
 "test_*.py" = ["S101"]
-
-[tool.setuptools]
-py-modules = []
