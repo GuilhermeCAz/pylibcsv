@@ -24,9 +24,9 @@ def process_csv_file(
     csv_file_path: str,
     selected_columns: str,
     row_filter_definitions: str,
-) -> None:
+) -> str:
     csv_data = read_csv_file(csv_file_path)
-    process_csv_data(csv_data, selected_columns, row_filter_definitions)
+    return process_csv_data(csv_data, selected_columns, row_filter_definitions)
 
 
 def read_csv_file(csv_file_path: str) -> str:
@@ -38,7 +38,7 @@ def process_csv_data(
     csv_data: str,
     selected_columns: str,
     row_filter_definitions: str,
-) -> None:
+) -> str:
     # read input data
     csv_reader = DictReader(csv_data.splitlines())
 
@@ -54,7 +54,7 @@ def process_csv_data(
     filtered_rows = filter_csv_data(csv_reader, selected_headers, filters)
 
     # write output data
-    write_csv_data(filtered_rows, selected_headers)
+    return write_csv_data(filtered_rows, selected_headers)
 
 
 def get_headers(csv_reader: DictReader[str]) -> Sequence[str]:
@@ -166,9 +166,10 @@ def row_meets_filters(
 def write_csv_data(
     filtered_rows: list[dict[str, str]],
     selected_headers: list[str],
-) -> None:
+) -> str:
+    output = io.StringIO()
     csv_writer = DictWriter(
-        sys.stdout,
+        output,
         fieldnames=selected_headers,
         lineterminator='\n',
         quotechar=None,
@@ -176,3 +177,5 @@ def write_csv_data(
     )
     csv_writer.writeheader()
     csv_writer.writerows(filtered_rows)
+
+    return output.getvalue()
