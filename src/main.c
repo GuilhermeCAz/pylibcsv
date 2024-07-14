@@ -12,7 +12,7 @@ void processCsv(const char csv_data[], const char selected_columns[], const char
         PyObject *pValue = PyObject_CallObject(pFunc, pArgs);
         Py_DECREF(pArgs);
         if (pValue != NULL) {
-            printf("Result: %s\n", PyUnicode_AsUTF8(pValue));
+            printf("%s", PyUnicode_AsUTF8(pValue));
             Py_DECREF(pValue);
         } else {
             PyErr_Print();
@@ -30,7 +30,7 @@ void processCsvFile(const char csv_file_path[], const char selected_columns[], c
         PyObject *pValue = PyObject_CallObject(pFunc, pArgs);
         Py_DECREF(pArgs);
         if (pValue != NULL) {
-            printf("Result: %s\n", PyUnicode_AsUTF8(pValue));
+            printf("%s", PyUnicode_AsUTF8(pValue));
             Py_DECREF(pValue);
         } else {
             PyErr_Print();
