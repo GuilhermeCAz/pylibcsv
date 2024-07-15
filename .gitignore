@@ -1,10 +1,11 @@
+.ssh/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
 
 # C extensions
-*.c
 *.so
 
 # Distribution / packaging
