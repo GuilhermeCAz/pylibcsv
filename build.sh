@@ -5,7 +5,7 @@ python3 -m venv /app/.venv
 source /app/.venv/bin/activate
 
 pip install --upgrade pip
-pip install --no-cache-dir cython setuptools
+pip install --no-cache-dir cython setuptools pytest PyYAML
 
 python3 setup.py build_ext --inplace
 
