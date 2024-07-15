@@ -11,8 +11,8 @@ authors = [
 ]
 
 [project.optional-dependencies]
-dev = ["mypy", "pip-tools", "ruff", "types-setuptools"]
-test = ["pytest", "PyYAML", "types-PyYAML"]
+dev = ["mypy", "pip-tools", "ruff", "types-setuptools", "types-PyYAML"]
+test = ["pytest", "PyYAML"]
 
 [tool.mypy]
 strict = true
